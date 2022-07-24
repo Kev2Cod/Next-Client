@@ -35,6 +35,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             ls 
+            docker container start nginx_base
+            docker container exec -it nginx_base /bin/sh
             cd ~
             cd Next-Client # we move into our app's folder
             git pull # we pull any changes from git
